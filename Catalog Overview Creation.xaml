@@ -1,0 +1,499 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Catalog_Overview_Creation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1152,6082</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Catalog_Overview_Creation_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Catalog_Overview_Creation" sap:VirtualizedContainerService.HintSize="609.3333333333334,6017.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use SAP Easy Access to create Product Catalog efficiently." sap:VirtualizedContainerService.HintSize="547.3333333333334,5929.333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="{x:Null}" IsIncognito="{x:Null}" OpenMode="{x:Null}" OutUiElement="{x:Null}" ScopeGuid="24d53aa2-490b-4ccf-84ef-c2417fbd311c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Perform actions within table cells for creating and updating items." sap:VirtualizedContainerService.HintSize="513.3333333333334,5569.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'OkCodeField okcd'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="451.3333333333333,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_9" IsPassword="True" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" Text="WWM1" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CVScreenId="e830d81a-d138-46eb-bbcc-3f5037365fdb" CvElementArea="68, 66, 224, 36" CvType="InputBox" DesignTimeRectangle="72, 69, 220, 32" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;sap id='tbar[0]/okcd' /&gt;" FuzzySelectorArgument="&lt;sap id='tbar[0]/okcd' /&gt;" Guid="b5dd5dc2-52de-4cfc-ba09-e65f60f85779" InformativeScreenshot="cb381cdf106de0dc5f6abeb83707ad06.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP Easy Access' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="451.3333333333333,255.33333333333334" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" InteractionMode="SameAsCard" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3">
+              <uix:NKeyboardShortcuts.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NKeyboardShortcuts.VerifyOptions>
+            </uix:NKeyboardShortcuts>
+            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="None" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into - CTextField Product" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="451.3333333333333,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InUiElement="{x:Null}" InteractionMode="Simulate" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" SecureText="{x:Null}" Text="[in_TransactionItem(&quot;Product Catalog Name&quot;).ToString]" Timeout="{x:Null}" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="229, 287, 168, 32" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/ctxtWWMID-WMINR' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/ctxtWWMID-WMINR' /&gt;" Guid="4be81d46-7b22-4377-8935-6564f30ff792" InformativeScreenshot="87f4be7e7024ef073cc2e8f947144816.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Create Product Catalog: Initial Screen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayBetweenShortcuts="{x:Null}" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="451.3333333333333,255.33333333333334" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InUiElement="{x:Null}" InteractionMode="SameAsCard" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" Shortcuts="[d(hk)][k(enter)][u(hk)]" ShortcutsArgument="{x:Null}" Timeout="{x:Null}" Version="V3">
+              <uix:NKeyboardShortcuts.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NKeyboardShortcuts.VerifyOptions>
+            </uix:NKeyboardShortcuts>
+            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="None" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into -TextField Product" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="451.3333333333333,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InUiElement="{x:Null}" InteractionMode="Simulate" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" SecureText="{x:Null}" Text="[in_TransactionItem(&quot;Catalog Description&quot;).ToString]" Timeout="{x:Null}" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="385, 219, 532, 32" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/txtWWMID-WMITX' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/txtWWMID-WMITX' /&gt;" Guid="167153f5-a5bd-402f-aef2-aa1a695abf1a" InformativeScreenshot="873155c0df9257a654bd2c5c0eb826c4.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Product Catalog: Create Basic Data' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="None" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into - Reference" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="451.3333333333333,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InUiElement="{x:Null}" InteractionMode="Simulate" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" SecureText="{x:Null}" Text="[in_TransactionItem(&quot;Ref. Customer&quot;).ToString]" Timeout="{x:Null}" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="242, 389, 142, 32" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/ctxtWWMID-KUNNR' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/ctxtWWMID-KUNNR' /&gt;" Guid="07f0f7ba-a858-42e5-8557-7c78e4da819c" InformativeScreenshot="7fbf014d7c35acad1c159a1ad3ae23a9.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Product Catalog: Create Basic Data' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickType="Single" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Click -Choose" sap:VirtualizedContainerService.HintSize="451.3333333333333,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_2" InUiElement="{x:Null}" KeyModifiers="None" MouseButton="Left" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" Timeout="{x:Null}" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="814, 456, 181, 34" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;sap id='usr/btnBUTTON_SALES_AREA' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/btnBUTTON_SALES_AREA' check:text='Choose' /&gt;" Guid="5cfdc4f7-3ab1-43fc-93c2-7a97e3241b89" InformativeScreenshot="0a507cc8f5312f5e71834e00a4b45903.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Product Catalog: Create Basic Data' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NCheck Action="Check" AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Check-First Row" sap:VirtualizedContainerService.HintSize="451.3333333333333,191.33333333333334" sap2010:WorkflowViewState.IdRef="NCheck_1" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" Timeout="{x:Null}" Version="V3">
+              <uix:NCheck.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="7, 83, 33, 32" DesignTimeScaleFactor="1.5" ElementType="CheckBox" FullSelectorArgument="&lt;sap id='usr/tblSAPLWWMMSALESAREAS' tableRow='0' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/tblSAPLWWMMSALESAREAS' /&gt;" Guid="6cd6447f-587b-4bb8-b27e-b2bf3b1a41c8" InformativeScreenshot="f087d15b9843443b2b649a6967a0eae4.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#32770' title='Sales Area Selection' idx='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NCheck.Target>
+            </uix:NCheck>
+            <uix:NClick ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickType="Single" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Click - Copy" sap:VirtualizedContainerService.HintSize="451.3333333333333,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_3" InUiElement="{x:Null}" KeyModifiers="None" MouseButton="Left" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" Timeout="{x:Null}" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="7, 490, 207, 34" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;sap id='usr/btnBUTTON_TAKE' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/btnBUTTON_TAKE' check:text='Copy' /&gt;" Guid="e938d500-8783-44f1-91a6-af77a7950309" InformativeScreenshot="cb2f21b0d226994553871a304c5a4de0.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#32770' title='Sales Area Selection' idx='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="None" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into - Display Currency" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="451.3333333333333,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InUiElement="{x:Null}" InteractionMode="Simulate" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" SecureText="{x:Null}" Text="[in_TransactionItem(&quot;Display Currency&quot;).ToString]" Timeout="{x:Null}" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="905, 627, 77, 32" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;sap id='usr/ctxtWWMID-ANZWA' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/ctxtWWMID-ANZWA' /&gt;" Guid="990c3f4a-54de-4ff4-826a-da9bb9fafeae" InformativeScreenshot="cb027e582149bf50b1e5af1a31d3a6a0.png" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Product Catalog: Create Basic Data' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <ui:CellScope ColumnName="Variant" ContinueOnError="{x:Null}" DisplayName="Table Cell Scope 'TextField  Var'" sap:VirtualizedContainerService.HintSize="451.3333333333333,715.3333333333334" sap2010:WorkflowViewState.IdRef="CellScope_1" RowNumber="First Empty Row" TableRow="{x:Null}" UiElement="{x:Null}">
+              <ui:CellScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,351.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="None" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,263.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InUiElement="{x:Null}" InteractionMode="Simulate" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" SecureText="{x:Null}" Text="[in_TransactionItem(&quot;Varient Number&quot;).ToString]" Timeout="{x:Null}" Version="V3">
+                      <uix:NTypeInto.VerifyOptions>
+                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                        </uix:VerifyExecutionTypeIntoOptions>
+                      </uix:NTypeInto.VerifyOptions>
+                    </uix:NTypeInto>
+                  </Sequence>
+                </ActivityAction>
+              </ui:CellScope.Body>
+              <ui:CellScope.ColumnNames>
+                <scg:List x:TypeArguments="x:String" Capacity="7">
+                  <x:String>Variant</x:String>
+                  <x:String>Language</x:String>
+                  <x:String>Currency</x:String>
+                  <x:String>Parallel currency</x:String>
+                  <x:String>Material</x:String>
+                  <x:String>No. of copies</x:String>
+                  <x:String>Description</x:String>
+                </scg:List>
+              </ui:CellScope.ColumnNames>
+              <ui:CellScope.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0d7669e5-5b12-465d-9060-78dcca12b389" InformativeScreenshot="cd03962a918e6e6105d5e16526f776fd" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Product Catalog: Create Basic Data' /&gt;&lt;sap id='usr/tblSAPLWWMMVARIANTS' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:CellScope.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CellScope>
+            <ui:CellScope ColumnName="Language" ContinueOnError="{x:Null}" DisplayName="Table Cell Scope - Language" sap:VirtualizedContainerService.HintSize="451.3333333333333,715.3333333333334" sap2010:WorkflowViewState.IdRef="CellScope_2" RowNumber="First Empty Row" TableRow="{x:Null}" UiElement="{x:Null}">
+              <ui:CellScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Type Into Language" sap:VirtualizedContainerService.HintSize="416,351.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="None" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into - Language" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,263.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InUiElement="{x:Null}" InteractionMode="Simulate" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" SecureText="{x:Null}" Text="[in_TransactionItem(&quot;Language&quot;).ToString]" Timeout="{x:Null}" Version="V3">
+                      <uix:NTypeInto.VerifyOptions>
+                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                        </uix:VerifyExecutionTypeIntoOptions>
+                      </uix:NTypeInto.VerifyOptions>
+                    </uix:NTypeInto>
+                  </Sequence>
+                </ActivityAction>
+              </ui:CellScope.Body>
+              <ui:CellScope.ColumnNames>
+                <scg:List x:TypeArguments="x:String" Capacity="7">
+                  <x:String>Variant</x:String>
+                  <x:String>Language</x:String>
+                  <x:String>Currency</x:String>
+                  <x:String>Parallel currency</x:String>
+                  <x:String>Material</x:String>
+                  <x:String>No. of copies</x:String>
+                  <x:String>Description</x:String>
+                </scg:List>
+              </ui:CellScope.ColumnNames>
+              <ui:CellScope.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4257fb33-25d8-4810-b79f-1ad6cca7626b" InformativeScreenshot="fbc6e83c0b463b9ad79cc4f7713123c0" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Product Catalog: Create Basic Data' /&gt;&lt;sap id='usr/tblSAPLWWMMVARIANTS' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:CellScope.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CellScope>
+            <ui:CellScope ColumnName="Currency" ContinueOnError="{x:Null}" DisplayName="Perform actions within a specific table cell scope, including typing into the currency field." sap:VirtualizedContainerService.HintSize="451.3333333333333,715.3333333333334" sap2010:WorkflowViewState.IdRef="CellScope_3" RowNumber="First Empty Row" TableRow="{x:Null}" UiElement="{x:Null}">
+              <ui:CellScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Type Into Currency Field" sap:VirtualizedContainerService.HintSize="416,351.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="None" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into Currency Field" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,263.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_7" InUiElement="{x:Null}" InteractionMode="Simulate" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" SecureText="{x:Null}" Text="[in_TransactionItem(&quot;Currency&quot;).ToString]" Timeout="{x:Null}" Version="V3">
+                      <uix:NTypeInto.VerifyOptions>
+                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                        </uix:VerifyExecutionTypeIntoOptions>
+                      </uix:NTypeInto.VerifyOptions>
+                    </uix:NTypeInto>
+                  </Sequence>
+                </ActivityAction>
+              </ui:CellScope.Body>
+              <ui:CellScope.ColumnNames>
+                <scg:List x:TypeArguments="x:String" Capacity="7">
+                  <x:String>Variant</x:String>
+                  <x:String>Language</x:String>
+                  <x:String>Currency</x:String>
+                  <x:String>Parallel currency</x:String>
+                  <x:String>Material</x:String>
+                  <x:String>No. of copies</x:String>
+                  <x:String>Description</x:String>
+                </scg:List>
+              </ui:CellScope.ColumnNames>
+              <ui:CellScope.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4257fb33-25d8-4810-b79f-1ad6cca7626b" InformativeScreenshot="09234e22c7feb7f9e8d294f4928f5ab0" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Product Catalog: Create Basic Data' /&gt;&lt;sap id='usr/tblSAPLWWMMVARIANTS' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:CellScope.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CellScope>
+            <ui:CellScope ColumnName="Material" ContinueOnError="{x:Null}" DisplayName="Perform actions within a table cell for Material including typing the material variant." sap:VirtualizedContainerService.HintSize="451.3333333333333,708.6666666666666" sap2010:WorkflowViewState.IdRef="CellScope_4" RowNumber="First Empty Row" TableRow="{x:Null}" UiElement="{x:Null}">
+              <ui:CellScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Type Into Material Field" sap:VirtualizedContainerService.HintSize="416,351.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="None" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into Material Field" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,263.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_8" InUiElement="{x:Null}" InteractionMode="Simulate" OutUiElement="{x:Null}" ScopeIdentifier="24d53aa2-490b-4ccf-84ef-c2417fbd311c" SecureText="{x:Null}" Text="[in_TransactionItem(&quot;Material Varient&quot;).ToString]" Timeout="{x:Null}" Version="V3">
+                      <uix:NTypeInto.VerifyOptions>
+                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                        </uix:VerifyExecutionTypeIntoOptions>
+                      </uix:NTypeInto.VerifyOptions>
+                    </uix:NTypeInto>
+                  </Sequence>
+                </ActivityAction>
+              </ui:CellScope.Body>
+              <ui:CellScope.ColumnNames>
+                <scg:List x:TypeArguments="x:String" Capacity="7">
+                  <x:String>Variant</x:String>
+                  <x:String>Language</x:String>
+                  <x:String>Currency</x:String>
+                  <x:String>Parallel currency</x:String>
+                  <x:String>Material</x:String>
+                  <x:String>No. of copies</x:String>
+                  <x:String>Description</x:String>
+                </scg:List>
+              </ui:CellScope.ColumnNames>
+              <ui:CellScope.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4257fb33-25d8-4810-b79f-1ad6cca7626b" InformativeScreenshot="6d9b8fbdd34542407ef421accad85d12" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Product Catalog: Create Basic Data' /&gt;&lt;sap id='usr/tblSAPLWWMMVARIANTS' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:CellScope.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CellScope>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" FilePath="[in_config(&quot;SAP Logon application path&quot;).ToString]" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAIKSURBVGhD7ZhLSwJRGIaNVv2OFhH9A3OhNUVtgpb9hMBKXZWl2KJVi+7RzaAiNZ0uELXIxURhLlqUtXDZKgq6gwTR4us7EyM2DnO6OHM4cYRnK+/z+c6r6ACAKp4RAqwRAqwRAqwRAqwRAqz5HwJNQ3IXssYbzSG5WxMYRYAj3pFdFKjnVWBXCm3WlVaIJ4EMuTzJzZsAqc22FJZrtfC8CaSl8Gdtvgjk8/ma9sjWlGcwBSwwCKqHXD6NtWnQh1cFrm/vognl8iESOwG7CK4eQ+fIDgokjQLrwdqUX17D8VR4A7vZUHLQEY6BeyBuFLiUjL7zemwVuH0sQOzgFCTfDLj8URRIGIUmFHfeKHQptgncPb/Cyl4WWn3T0Ni3AO7+uNkzUNx5GrYJbCpnIPVOgrNnDsPHzMJ/2XkalgvcYG1W9rPg8U7g5RfNLm+48zQsFyDh2wIz0Ng7XxLeUMBw52lYJkA6T2rj6SGXJ53XalMW3nTnaTjuX17Xj3JX+dThBaSU84oxnlSgxY+X9y3RHljTnafhwFc1XmjMiR+x0ztbOfBhdQWW1a03qQ1152mov4XcweSoO7ih7nLFwPcj37QmtfnWztNg9WPu2ztPg4XAj3aehp0Cv9p5GnYK/Grnadgh8Kedp6EJWPe3SkgetuLyGqoAzwgB1ggB1ggB1ggB1ggB1nAuAFUfxIfXPEuuE9oAAAAASUVORK5CYII=" InformativeScreenshot="3fb91cac55e1c2f96a2ba62e88191a43.png" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP Easy Access' /&gt;" Title="SAP Easy Access" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
